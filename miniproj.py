@@ -20,39 +20,47 @@ def main():
             
 
     num = random.randrange(1,num_range)
-    guess = int(input("Please enter a number inclusive of your min and max range values: "))
-    #simple counter for number of guesses
+
+    while True:
+        try:
+            guess = int(input("Please enter a number inclusive of your min and max range values: "))
+            if guess >= 1 and guess <=num_range:
+                break
+            else:
+                print(f"Invalid number, please enter a number from 1 to {num_range}")
+        except:
+            print("Please enter an integer, try again")
+
+   #simple counter for number of guesses
     i=0
 
     #loop keeps running until user gets the guess correct
     while num!=guess:
         i+=1
-        print(i)
         if guess>num:
             #if the guess is to high
             print("You are too high!")
-            guess = int(input(f"You have made {i} guesses, please guess again: "))
+            guess = guess_val(i,num_range)
+        
         elif guess<num:
             #if the guess is to low
             print("You are too low!")
-            guess = int(input(f"You have made {i} guesses, please guess again: "))
+            guess = guess_val(i,num_range)
         else:
             break
     print("Your guess is correct!")
 
-'''
-I was wanting to add more vaildation here for the guesses but ran out of time
-def guess_val(i,guess):
+def guess_val(x,y):
     while True:
         try:
-            guess = int(input(f"You have made {i} guesses, please guess again"))
-            if guess >= 1:
-                break
+            new_guess = int(input(f"You have made {x} guesses, please guess again: "))
+            if new_guess >= 1 and new_guess <= y:
+                return new_guess
             else:
-                print("Invalid number, please try again")
+                print("Invalid number, please try again: ")
         except:
-            print("Please enter an integer, try again")
-'''
+            print("Please enter an integer, try again: ")
+
 
 main()
 

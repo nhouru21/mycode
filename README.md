@@ -6,4 +6,4 @@ I am a lifelong student studying all things computer science and data analysis. 
 
 This specific repository is related to what I am currently learning with Python and Linux!
 
-![alt text](https://giphy.com/embed/xT9IgzoKnwFNmISR8I)
+![alt text](https://giphy.com/embed/xT9IgzoKnwFNmISR8I/giphy.gif)

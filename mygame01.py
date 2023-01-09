@@ -30,7 +30,6 @@ def showStatus():
 inventory = []
 
 ## A dictionary linking a room to other rooms
-## A dictionary linking a room to other rooms
 rooms = {
 
             'Hall' : {
@@ -46,8 +45,13 @@ rooms = {
             'Dining Room' : {
                   'west' : 'Hall',
                   'south': 'Garden',
+                  'east' : 'Armory',
                   'item' : 'potion'
                },
+            'Armory' : {
+                'west' : 'Dining Room',
+                'item' : 'Shield'
+                },
             'Garden' : {
                   'north' : 'Dining Room'
             }
@@ -109,4 +113,5 @@ while True:
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
         print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
         break
+
 

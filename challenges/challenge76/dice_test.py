@@ -3,7 +3,7 @@
 Creating a simple dice program utilizing classes."""
 
 
-# imports from cheadice.py (this is in the local directory)
+# imports from morecheats.py (this is in the local directory)
 from morecheats import Player
 from morecheats import Cheat_Swapper
 from morecheats import Cheat_Loaded_Dice
@@ -16,8 +16,8 @@ def main():
     """run-time code"""
 
     # create two cheater objects
-    cheater1 = Cheat_Mulligan # if total dice is under 9, get a re-roll
-    cheater2 = Cheat_Lucky_Die # first die roll is lucky and can't roll under 3
+    cheater1 = Cheat_Mulligan() # if total dice is under 9, get a re-roll
+    cheater2 = Cheat_Lucky_Die() # first die roll is lucky and can't roll under 3
 
     # both players take turns
     cheater1.roll()

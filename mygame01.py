@@ -126,10 +126,10 @@ while True:
         print('You have triggered a time trap, answer the riddle correctly by entering 1 in the next 10 seconds or perish')
         S = th.Timer(10.0, sctn)
         S.start()
-        
+       
         answer = int(input("enter : "))
         
-        if answer == 1 and S.is_alive():
+        if answer == 1:
             S.cancel()
         else:
             break

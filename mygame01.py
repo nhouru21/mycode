@@ -2,6 +2,13 @@
 """Driving a simple game framework with
    a dictionary object | Alta3 Research"""
 
+import time
+import threading as th
+
+
+def sctn():
+    pass
+
 def showInstructions():
     """Show the game instructions when called"""
     #print a main menu and the commands
@@ -50,7 +57,7 @@ rooms = {
                },
             'Armory' : {
                 'west' : 'Dining Room',
-                'item' : 'Shield'
+                'item' : 'shield'
                 },
             'Garden' : {
                   'north' : 'Dining Room'
@@ -113,5 +120,16 @@ while True:
     if currentRoom == 'Garden' and 'key' in inventory and 'potion' in inventory:
         print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
         break
-
-
+    
+    ## trap triggers when pick up shield
+    if currentRoom == 'Armory' and 'shield' in inventory:
+        print('You have triggered a time trap, answer the riddle correctly by entering 1 in the next 10 seconds or perish')
+        S = th.Timer(10.0, sctn)
+        S.start()
+        
+        answer = int(input("enter : "))
+        
+        if answer == 1 and S.is_alive():
+            S.cancel()
+        else:
+            break

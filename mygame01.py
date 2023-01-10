@@ -4,10 +4,10 @@
 
 import time
 import threading as th
-
+import os
 
 def sctn():
-    pass
+    os._exit(os.EX_OK)
 
 def showInstructions():
     """Show the game instructions when called"""
@@ -31,19 +31,6 @@ def showStatus():
     if "item" in rooms[currentRoom]:
       print('You see a ' + rooms[currentRoom]['item'])
     print("---------------------------")
-
-def startTimer():
-    run = 10
-    start = time.time()
-    while time.time() - start < run:
-        answer = int(input("guess 1: "))
-        if answer == 1:
-            run = run + 10
-            break
-        else:
-            exit()
-
-S = th.Timer(10.0, sctn)
 
 # an inventory, which is initially empty
 inventory = []
@@ -136,5 +123,13 @@ while True:
     ## trap triggers when pick up shield
     if currentRoom == 'Armory' and 'shield' in inventory:
         print('You have triggered a time trap, answer the riddle correctly by entering 1 in the next 10 seconds or perish')
-        startTimer()
-        
+        S = th.Timer(10.0, sctn)
+        S.start()
+        answer = int(input("enter 1: "))
+
+        if answer == 1 and S.is_alive():
+            print("You guess right")
+            S.cancel()
+        else:
+            print("Time is up")
+            break

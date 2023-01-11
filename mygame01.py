@@ -6,6 +6,7 @@ import time
 import threading as th
 import os
 
+# when the thread timer hits 0, this function exits the game
 def sctn():
     os._exit(os.EX_OK)
 
@@ -120,7 +121,7 @@ while True:
         print('You escaped the house with the ultra rare key and magic potion... YOU WIN!')
         break
     
-    ## trap triggers when pick up shield
+    ## trap triggers when pick up shield in Armory
     if currentRoom == 'Armory' and 'shield' in inventory:
         print('You have triggered a time trap, answer the riddle correctly by entering 1 in the next 10 seconds or perish')
         S = th.Timer(10.0, sctn)

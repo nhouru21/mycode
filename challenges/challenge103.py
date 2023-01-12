@@ -1,16 +1,6 @@
 #!/usr/bin/python3
-"""Alta3 Research | rzfeeser@alta3.com
-   A simple Flask server. This server has the following endpoints:
-   
-   /success/<name> - responds with 200 + 'Welcome {name}'
-   
-   /
-   /start          - Both endpoints respond with 200 + postmaker.html (template)
-   
-   /login          - a POST will have the form read for 'nm'
-                   - a GET will be scanned for the query param ?nm=some_value"""
+""" Flask quiz game """
 
-# python3 -m pip install flask
 from flask import Flask
 from flask import redirect
 from flask import url_for
